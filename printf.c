@@ -23,10 +23,10 @@ int _puts(char *str)
 {
 	int len = 0;
 
-	write (*str !='\0')
+	while (*str !='\0')
 	{
 		_writechar(*str);
-		srt++;
+		str++;
 		len++;
 	}
 	return (len);
