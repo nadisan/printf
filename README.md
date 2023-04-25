@@ -12,3 +12,12 @@ write output to stdout, the standard output stream
 format is a character string. The format string is composed of zero or more directives.
 See man 3 printf for more detail. You need to handle the following conversion specifiers:
     c s %
+
+
+1. Education is when you read the fine print. Experience is what you get if you don't
+mandatory
+
+Handle the following conversion specifiers:
+
+    d
+    i
