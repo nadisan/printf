@@ -14,7 +14,7 @@ int _writechar(char c)
 
 /**
  * _puts - prints char
- * @c: pointer to char
+ * @str: pointer to char
  *
  * Return: characther
  */
@@ -23,7 +23,7 @@ int _puts(char *str)
 {
 	int len = 0;
 
-	while (*str !='\0')
+	while (*str != '\0')
 	{
 		_writechar(*str);
 		str++;
@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch(*format)
+			switch (*format)
 			{
 				case 'c':
 					_writechar(va_arg(args, int));
