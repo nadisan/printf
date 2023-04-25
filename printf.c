@@ -96,15 +96,13 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					_writechar(va_arg(args, int));
-					count++;
+					count += _writechar(va_arg(args, int));
 					break;
 				case 's':
 					count += _puts(va_arg(args, char*));
 					break;
 				case '%':
-					_writechar('%');
-					count++;
+					count += _writechar('%');
 					break;
 				case 'i':
 				case 'd':
@@ -115,10 +113,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
-			_writechar(*format);
-			count++;
-		}
+			count += _writechar(*format);
 		format++;
 	}
 	va_end(args);
