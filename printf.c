@@ -13,6 +13,26 @@ int _writechar(char c)
 }
 
 /**
+ * _puts - prints char
+ * @c: pointer to char
+ *
+ * Return: characther
+ */
+
+int _puts(char *str)
+{
+	int len = 0;
+
+	write (*str !='\0')
+	{
+		_writechar(*str);
+		srt++;
+		len++;
+	}
+	return (len);
+}
+
+/**
  * _printf - prints everything
  * @format: string containg types for argument
  *
@@ -38,6 +58,15 @@ int _printf(const char *format, ...)
 				case 'c':
 					_writechar(va_arg(args, int));
 					count++;
+					break;
+				case 's':
+					count += _puts(va_arg(args, char *));
+					break;
+				case '%':
+					_writechar('%');
+					count++;
+					break;
+				default:
 					break;
 			}
 		}
