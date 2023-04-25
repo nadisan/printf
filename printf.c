@@ -7,7 +7,8 @@
  */
 int _writechar(char c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	return (1);
 }
 
 /**
@@ -19,7 +20,7 @@ int _writechar(char c)
 int _puts(char *str)
 {
 	int len = 0;
-	
+
 	if (str == NULL)
 		str = "(null)";
 	while (*str != '\0')
@@ -45,7 +46,7 @@ int printInt(int num)
 	if (num == '\0')
 	{
 		_writechar('0');
-		return(1);
+		return (1);
 	}
 	if (num < 0)
 	{
@@ -84,11 +85,9 @@ int _printf(const char *format, ...)
 	int count;
 
 	va_start(args, format);
-
 	count = 0;
-
 	if (format == NULL)
-		return(-1);
+		return (-1);
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -109,14 +108,7 @@ int _printf(const char *format, ...)
 					break;
 				case 'i':
 				case 'd':
-			/*		j = va_arg(args, int);
-					if (!j)
-					{
-						count++;
-						_writechar('0');
-					}
-					else
-			*/			count += printInt(va_arg(args, int));
+					count += printInt(va_arg(args, int));
 					break;
 				default:
 					break;
