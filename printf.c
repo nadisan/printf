@@ -46,7 +46,10 @@ int printnum(int num, char type)
 	unsigned int a, b = num, c = 1, d, f, n;
 
 	if (num == '\0')
-		return (_writechar('0'));
+	{
+		_writechar('0');
+		return (-1);
+	}
 	if (num < 0)
 		num = num * -1;
 	if (type == 'b')
@@ -92,7 +95,10 @@ int printInt(int num, unsigned int n)
 	unsigned int a, b, c, d, f;
 
 	if (num == '\0')
-		return (_writechar('0'));
+	{
+		_writechar('0');
+		return (0);
+	}
 	if (num < 0)
 	{
 		count += _writechar('-');
