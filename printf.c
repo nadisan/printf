@@ -22,6 +22,7 @@ int _writechar(char c)
 int _puts(char *str)
 {
 	int len = 0;
+
 	if (str == NULL || str == 0)
 		str = "(null)";
 	while (*str != '\0')
