@@ -92,17 +92,8 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					j = va_arg(args, int);
-                                        if (!j)
-                                        {
-                                                count++;
-                                                _writechar('0');
-                                        }
-					else
-					{
-						_writechar(va_arg(args, int));
-						count++;
-					}
+					_writechar(va_arg(args, int));
+					count++;
 					break;
 				case 's':
 					count += _puts(va_arg(args, char*));
