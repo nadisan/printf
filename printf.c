@@ -109,6 +109,8 @@ int _printf(const char *format, ...)
 					count += printInt(va_arg(args, int));
 					break;
 				default:
+					count +=  _writechar('%');
+					format--;
 					break;
 			}
 		}
