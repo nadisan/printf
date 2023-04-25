@@ -42,6 +42,11 @@ int printInt(int num)
 	int count = 0;
 	unsigned int a, b, c, d, f;
 
+	if (num == '\0')
+	{
+		_writechar('0');
+		return(1);
+	}
 	if (num < 0)
 	{
 		_writechar('-');
@@ -76,7 +81,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 
-	int count, j;
+	int count;
 
 	va_start(args, format);
 
@@ -104,14 +109,14 @@ int _printf(const char *format, ...)
 					break;
 				case 'i':
 				case 'd':
-					j = va_arg(args, int);
+			/*		j = va_arg(args, int);
 					if (!j)
 					{
 						count++;
 						_writechar('0');
 					}
 					else
-						count += printInt(j);
+			*/			count += printInt(va_arg(args, int));
 					break;
 				default:
 					break;
