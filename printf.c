@@ -47,8 +47,7 @@ int printnum(int num, char type)
 
 	if (num == '\0')
 	{
-		_writechar('0');
-		return (-1);
+		return (_writechar('0'));
 	}
 	if (num < 0)
 		num = num * -1;
@@ -96,8 +95,7 @@ int printInt(int num, unsigned int n)
 
 	if (num == '\0')
 	{
-		_writechar('0');
-		return (0);
+		return (_writechar('0'));
 	}
 	if (num < 0)
 	{
