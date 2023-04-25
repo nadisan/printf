@@ -67,7 +67,7 @@ int printnum(int num, char type)
 		num = num % c;
 		c = c / n;
 		if (d < 10)
-			 count += _writechar(d + '0');
+			count += _writechar(d + '0');
 		else
 		{
 			if (type == 'X')
