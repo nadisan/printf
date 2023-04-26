@@ -45,7 +45,7 @@ int printnum(int num, char type)
 	int count = 0;
 	unsigned int a, b = num, c = 1, d, f, n;
 
-	if (num == '\0')
+	if (num == '0' || num == '\0')
 	{
 		return (_writechar('0'));
 	}
