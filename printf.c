@@ -129,14 +129,9 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 
-	int count;
+	int count = 0;
 
-	char *j = malloc(sizeof(int));
-
-	if (*j == '0')
-		return (-1);	
 	va_start(args, format);
-	count = 0;
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	while (*format != '\0')
@@ -144,10 +139,9 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			*j = *format;
-			if (*j == 'X' || *j == 'x' || *j == 'u' || *j == 'o' || *j == 'b')
+			if (*format == 'X' || *format == 'x' || *format == 'u' || *format == 'o' || *format == 'b')
 				count += printnum((va_arg(args, int)), *format);
-			else if (*j == 'i' || *j == 'd')
+			else if (*format == ('i' || 'd'))
 				count += printInt((va_arg(args, int)), 10);
 			else if (*format == 'c')
 				count += _writechar(va_arg(args, int));
@@ -166,6 +160,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	free(j);
 	return (count);
 }
