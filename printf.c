@@ -133,6 +133,8 @@ int _printf(const char *format, ...)
 
 	char *j = malloc(sizeof(int));
 
+	if (*j == '0')
+		return (-1);	
 	va_start(args, format);
 	count = 0;
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
