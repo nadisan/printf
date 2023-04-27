@@ -55,8 +55,6 @@ int printnum(int num, char type)
 		return (printInt(num, 2));
 	else if (type == 'o')
 		return (printInt(num, 8));
-	else if (type == 'u')
-		return (printInt(num, 10));
 	n = 16;
 	for (a = 1; b > (n - 1); a++)
 	{
@@ -139,10 +137,12 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'X' || *format == 'x' || *format == 'u' || *format == 'o' || *format == 'b')
+			if (*format == 'X' || *format == 'x' || *format == 'o' || *format == 'b')
 				count += printnum((va_arg(args, int)), *format);
-			else if (*format == ('i' || 'd'))
-				count += printInt((va_arg(args, int)), 10);
+			else if (*format == 'i' || *format  == 'd' || *format == 'u')
+				if (*format == 'u' && va_arg(args, int) < 0)
+						count += printInt(-(va_arg(args, int)), 10);
+				else count += printInt((va_arg(args, int)), 10);
 			else if (*format == 'c')
 				count += _writechar(va_arg(args, int));
 			else if (*format == 's')
