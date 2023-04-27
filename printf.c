@@ -162,8 +162,8 @@ int _printf(const char *format, ...)
 		else
 			count += _writechar(*format);
 		format++;
+		free (j);
 	}
 	va_end(args);
-	free(j);
 	return (count);
 }
