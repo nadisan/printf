@@ -126,7 +126,6 @@ int printInt(int num, unsigned int n)
 int _printf(const char *format, ...)
 {
 	va_list args;
-
 	int count = 0;
 
 	va_start(args, format);
@@ -140,9 +139,12 @@ int _printf(const char *format, ...)
 			if (*format == 'X' || *format == 'x' || *format == 'o' || *format == 'b')
 				count += printnum((va_arg(args, int)), *format);
 			else if (*format == 'i' || *format  == 'd' || *format == 'u')
+			{
 				if (*format == 'u' && va_arg(args, int) < 0)
-						count += printInt(-(va_arg(args, int)), 10);
-				else count += printInt((va_arg(args, int)), 10);
+					count += printInt(-(va_arg(args, int)), 10);
+				else
+					count += printInt((va_arg(args, int)), 10);
+			}
 			else if (*format == 'c')
 				count += _writechar(va_arg(args, int));
 			else if (*format == 's')
